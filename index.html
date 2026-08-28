@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">PubMerge - Merge JW Library backups</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #c7c2ee 0%, #6c63c7 45%, #4b43a3 100%);
+            min-height: 100vh;
+        }
+
+        .container { max-width: 820px; margin: 0 auto; padding: 2rem; }
+
+        .card {
+            background: white;
+            border-radius: 22px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 20px 40px rgba(52, 39, 88, 0.14);
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #8b83e0 0%, #5850c7 100%);
+            border-radius: 28px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #4b43a3 0%, #7a72d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle { font-size: 1.15rem; color: #666; margin-bottom: 2rem; }
+
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.92);
+            border: 2px solid #5850c7;
+            color: #4b43a3;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            margin: 0 0.2rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.25s ease;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: #5850c7;
+            color: white;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            color: #444;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .feature {
+            padding: 1.25rem;
+            background: #f5f4fb;
+            border-radius: 16px;
+            border-left: 4px solid #6c63c7;
+        }
+
+        .feature h3 { color: #4b43a3; margin-bottom: 0.65rem; font-size: 1rem; }
+
+        .actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.95rem 1.75rem;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(75, 67, 163, 0.25); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6c63c7 0%, #4b43a3 100%);
+            color: white;
+        }
+
+        .btn-secondary { background: #6c757d; color: white; }
+
+        .footer {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.92rem;
+        }
+
+        .footer a { color: #4b43a3; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .footer-contact { margin-top: 0.35rem; }
+
+        .legal {
+            margin-top: 1.25rem;
+            font-size: 0.85rem;
+            color: #777;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <button class="lang-btn active" onclick="changeLanguage('en', this)">EN</button>
+        <button class="lang-btn" onclick="changeLanguage('es', this)">ES</button>
+        <button class="lang-btn" onclick="changeLanguage('zh', this)">中文</button>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="logo">P</div>
+            <h1>PubMerge</h1>
+            <p class="subtitle" id="subtitle">Merge JW Library backups</p>
+
+            <div class="description">
+                <p id="description1"><strong>PubMerge</strong> imports, compares, and merges JW Library .jwlibrary backups on your iPhone, iPad, or Mac.</p>
+                <p id="description2">Everything stays on the device. Original files are never changed. No account and no server.</p>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <h3 id="feature1-title">📥 Import locally</h3>
+                    <p id="feature1-desc">Add two or more .jwlibrary copies. The originals are left untouched.</p>
+                </div>
+                <div class="feature">
+                    <h3 id="feature2-title">🔍 Compare and edit</h3>
+                    <p id="feature2-desc">Search by words, filter by device, edit a note, or remove it from the merged list.</p>
+                </div>
+                <div class="feature">
+                    <h3 id="feature3-title">⚖️ Resolve conflicts</h3>
+                    <p id="feature3-desc">Choose newest, primary, secondary, or keep both notes when copies differ.</p>
+                </div>
+                <div class="feature">
+                    <h3 id="feature4-title">🔒 Local privacy</h3>
+                    <p id="feature4-desc">No accounts, no analytics, and no upload of your notes or backups.</p>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="https://apps.apple.com" class="btn btn-primary" id="download-btn">Download on App Store</a>
+                <a href="privacy.html" class="btn btn-secondary" id="privacy-btn">Privacy Policy</a>
+            </div>
+
+            <p class="legal" id="legal">PubMerge is an independent tool. It is not affiliated with, endorsed by, or connected to the Watch Tower Bible and Tract Society of Pennsylvania. JW Library is a trademark of Watch Tower.</p>
+
+            <div class="footer">
+                <p id="footer1">&copy; 2026 PubMerge. All rights reserved.</p>
+                <p class="footer-contact"><span id="footer-contact-label">Contact:</span> <a href="mailto:info@520apps.com">info@520apps.com</a></p>
+                <p><a href="privacy.html" id="footer-privacy">Privacy Policy</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "PubMerge - Merge JW Library backups",
+                subtitle: "Merge JW Library backups",
+                description1: "<strong>PubMerge</strong> imports, compares, and merges JW Library .jwlibrary backups on your iPhone, iPad, or Mac.",
+                description2: "Everything stays on the device. Original files are never changed. No account and no server.",
+                feature1Title: "📥 Import locally",
+                feature1Desc: "Add two or more .jwlibrary copies. The originals are left untouched.",
+                feature2Title: "🔍 Compare and edit",
+                feature2Desc: "Search by words, filter by device, edit a note, or remove it from the merged list.",
+                feature3Title: "⚖️ Resolve conflicts",
+                feature3Desc: "Choose newest, primary, secondary, or keep both notes when copies differ.",
+                feature4Title: "🔒 Local privacy",
+                feature4Desc: "No accounts, no analytics, and no upload of your notes or backups.",
+                downloadBtn: "Download on App Store",
+                privacyBtn: "Privacy Policy",
+                legal: "PubMerge is an independent tool. It is not affiliated with, endorsed by, or connected to the Watch Tower Bible and Tract Society of Pennsylvania. JW Library is a trademark of Watch Tower.",
+                footer1: "© 2026 PubMerge. All rights reserved.",
+                footerContact: "Contact:",
+                footerPrivacy: "Privacy Policy"
+            },
+            es: {
+                title: "PubMerge - Fusiona copias JW Library",
+                subtitle: "Fusiona copias de JW Library",
+                description1: "<strong>PubMerge</strong> importa, compara y fusiona copias .jwlibrary de JW Library en iPhone, iPad o Mac.",
+                description2: "Todo se queda en el aparato. Los archivos originales no se modifican. Sin cuenta y sin servidor.",
+                feature1Title: "📥 Importar en local",
+                feature1Desc: "Añade dos o más copias .jwlibrary. Los originales no se tocan.",
+                feature2Title: "🔍 Comparar y editar",
+                feature2Desc: "Busca por palabras, filtra por dispositivo, edita una nota o quítala de la lista fusionada.",
+                feature3Title: "⚖️ Resolver conflictos",
+                feature3Desc: "Elige la más reciente, la principal, la secundaria o conserva ambas notas.",
+                feature4Title: "🔒 Privacidad local",
+                feature4Desc: "Sin cuentas, sin analítica y sin subir tus notas ni copias.",
+                downloadBtn: "Descargar en App Store",
+                privacyBtn: "Política de Privacidad",
+                legal: "PubMerge es una herramienta independiente. No está afiliada, respaldada ni conectada con Watch Tower Bible and Tract Society of Pennsylvania. JW Library es una marca de Watch Tower.",
+                footer1: "© 2026 PubMerge. Todos los derechos reservados.",
+                footerContact: "Contacto:",
+                footerPrivacy: "Política de Privacidad"
+            },
+            zh: {
+                title: "PubMerge - 合并 JW Library 备份",
+                subtitle: "合并 JW Library 备份",
+                description1: "<strong>PubMerge</strong> 可在 iPhone、iPad 或 Mac 上导入、比较并合并 JW Library 的 .jwlibrary 备份。",
+                description2: "全部保留在本机。不修改原始文件。无需账户，也无需服务器。",
+                feature1Title: "📥 本地导入",
+                feature1Desc: "添加两份或更多 .jwlibrary 副本。原文件保持不变。",
+                feature2Title: "🔍 比较与编辑",
+                feature2Desc: "按词语搜索、按设备筛选、编辑笔记，或从合并列表中删除。",
+                feature3Title: "⚖️ 处理冲突",
+                feature3Desc: "当副本不同时，可选择最新、主副本、次副本，或同时保留两则笔记。",
+                feature4Title: "🔒 本地隐私",
+                feature4Desc: "无账户、无分析，也不会上传您的笔记或备份。",
+                downloadBtn: "在 App Store 下载",
+                privacyBtn: "隐私政策",
+                legal: "PubMerge 是独立工具，与 Watch Tower Bible and Tract Society of Pennsylvania 没有任何隶属、认可或关联关系。JW Library 是 Watch Tower 的商标。",
+                footer1: "© 2026 PubMerge. 版权所有。",
+                footerContact: "联系：",
+                footerPrivacy: "隐私政策"
+            }
+        };
+
+        function detectLanguage() {
+            const saved = localStorage.getItem('pubmerge-language');
+            if (saved && translations[saved]) return saved;
+            const browserLang = navigator.language || navigator.userLanguage || 'en';
+            if (browserLang.startsWith('zh')) return 'zh';
+            if (browserLang.startsWith('es')) return 'es';
+            return 'en';
+        }
+
+        function changeLanguage(lang, button) {
+            if (!translations[lang]) return;
+            const t = translations[lang];
+            document.title = t.title;
+            document.getElementById('page-title').textContent = t.title;
+            document.getElementById('subtitle').textContent = t.subtitle;
+            document.getElementById('description1').innerHTML = t.description1;
+            document.getElementById('description2').textContent = t.description2;
+            document.getElementById('feature1-title').textContent = t.feature1Title;
+            document.getElementById('feature1-desc').textContent = t.feature1Desc;
+            document.getElementById('feature2-title').textContent = t.feature2Title;
+            document.getElementById('feature2-desc').textContent = t.feature2Desc;
+            document.getElementById('feature3-title').textContent = t.feature3Title;
+            document.getElementById('feature3-desc').textContent = t.feature3Desc;
+            document.getElementById('feature4-title').textContent = t.feature4Title;
+            document.getElementById('feature4-desc').textContent = t.feature4Desc;
+            document.getElementById('download-btn').textContent = t.downloadBtn;
+            document.getElementById('privacy-btn').textContent = t.privacyBtn;
+            document.getElementById('legal').textContent = t.legal;
+            document.getElementById('footer1').textContent = t.footer1;
+            document.getElementById('footer-contact-label').textContent = t.footerContact;
+            document.getElementById('footer-privacy').textContent = t.footerPrivacy;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            if (button) button.classList.add('active');
+            localStorage.setItem('pubmerge-language', lang);
+            document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : lang;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const lang = detectLanguage();
+            const buttons = document.querySelectorAll('.lang-btn');
+            let active = buttons[0];
+            buttons.forEach(btn => {
+                const label = btn.textContent.trim();
+                if ((lang === 'zh' && label === '中文') || (lang === 'es' && label === 'ES') || (lang === 'en' && label === 'EN')) {
+                    active = btn;
+                }
+            });
+            changeLanguage(lang, active);
+        });
+    </script>
+</body>
+</html>

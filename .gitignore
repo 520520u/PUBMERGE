@@ -1,0 +1,23 @@
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+xcuserdata/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift
+.swiftpm/
+.build/
+
+# macOS
+.DS_Store
+
+# Local scratch
+.tmp/
+Fixtures/Synthetic/workspace/
