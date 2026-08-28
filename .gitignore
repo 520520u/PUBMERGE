@@ -1,23 +1,9 @@
-# Xcode
-DerivedData/
-build/
-*.xcuserstate
-*.xccheckout
-*.xcscmblueprint
-xcuserdata/
-*.moved-aside
-*.hmap
-*.ipa
-*.dSYM.zip
-*.dSYM
+# This GitHub repo is only the support and privacy site.
+# The app stays local and must not be published here.
+/*
 
-# Swift
-.swiftpm/
-.build/
-
-# macOS
-.DS_Store
-
-# Local scratch
-.tmp/
-Fixtures/Synthetic/workspace/
+!/.gitignore
+!/.nojekyll
+!/index.html
+!/privacy.html
+!/icon.png
