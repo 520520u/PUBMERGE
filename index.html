@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">PubMerge - Merge .jwlibrary backups</title>
+    <link rel="icon" type="image/png" href="icon.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -28,17 +29,12 @@
         .logo {
             width: 120px;
             height: 120px;
-            background: linear-gradient(135deg, #8b83e0 0%, #5850c7 100%);
-            border-radius: 28px;
             margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            letter-spacing: 0.02em;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(52, 39, 88, 0.22);
         }
+        .logo img { width: 100%; height: 100%; display: block; }
 
         h1 {
             font-size: clamp(2.2rem, 5vw, 3rem);
@@ -149,7 +145,7 @@
 
     <div class="container">
         <div class="card">
-            <div class="logo">P</div>
+            <div class="logo"><img src="icon.png" alt="PubMerge"></div>
             <h1>PubMerge</h1>
             <p class="subtitle" id="subtitle">Merge .jwlibrary backups</p>
 
